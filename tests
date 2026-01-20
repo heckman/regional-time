@@ -1,0 +1,12 @@
+#!/bin/sh
+
+
+
+if test "$(.build/release/regional-time 45.37 -75.85 1768922712 )" = "2026-01-20T10:25:12-05:00"
+then
+	echo "PASS"
+	exit 0
+else
+	echo "FAIL"
+	exit 1
+fi
