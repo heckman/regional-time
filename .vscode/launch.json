@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:RegionalTime}",
+      "name": "Debug regional-time",
+      "target": "regional-time",
+      "configuration": "debug",
+      "preLaunchTask": "swift: Build Debug regional-time"
+    },
+    {
+      "type": "swift",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:RegionalTime}",
+      "name": "Release regional-time",
+      "target": "regional-time",
+      "configuration": "release",
+      "preLaunchTask": "swift: Build Release regional-time"
+    }
+  ]
+}
