@@ -59,7 +59,14 @@ guard CommandLine.arguments.count == 4,
   let lon = Double(CommandLine.arguments[2]),
   let epoch = Double(CommandLine.arguments[3])
 else {
-  die("Usage: GeoTimeUtility <latitude> <longitude> <utc_epoch_seconds>")
+  die(
+    """
+    usage: regional-time <latitude> <longitude> <epoch_seconds>
+    example:
+        % regional-time 45.37 -75.85 1768922712
+        2026-01-20T10:25:12-05:00
+    """
+  )
   exit(1)
 }
 
