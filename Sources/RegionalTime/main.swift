@@ -12,7 +12,7 @@ func die(_ message: String) {
 }
 
 class GeocoderDelegate: NSObject, CLLocationManagerDelegate {
-  func geocode(latitude: Double, longitude: Double, epochSeconds: Double) {
+  func geocode(epochSeconds: Double, latitude: Double, longitude: Double) {
     let location = CLLocation(latitude: latitude, longitude: longitude)
     let geoCoder = CLGeocoder()
     let dateToCheck = Date(timeIntervalSince1970: epochSeconds)
@@ -55,13 +55,13 @@ class GeocoderDelegate: NSObject, CLLocationManagerDelegate {
 }
 
 guard CommandLine.arguments.count == 4,
-  let lat = Double(CommandLine.arguments[1]),
-  let lon = Double(CommandLine.arguments[2]),
-  let epoch = Double(CommandLine.arguments[3])
+  let epoch = Double(CommandLine.arguments[1]),
+  let lat = Double(CommandLine.arguments[2]),
+  let lon = Double(CommandLine.arguments[3])
 else {
-  die("Usage: GeoTimeUtility <latitude> <longitude> <utc_epoch_seconds>")
+  die("Usage: GeoTimeUtility <utc_epoch_seconds> <latitude> <longitude>")
   exit(1)
 }
 
 let delegate = GeocoderDelegate()
-delegate.geocode(latitude: lat, longitude: lon, epochSeconds: epoch)
+delegate.geocode(epochSeconds: epoch, latitude: lat, longitude: lon)
